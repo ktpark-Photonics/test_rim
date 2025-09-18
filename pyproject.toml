@@ -1,0 +1,36 @@
+[project]
+name = "rimworld-agent"
+version = "0.1.0"
+description = "RimWorld visual-behavior agent with imitation and reinforcement learning."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{name = "RimWorld Agent Team"}]
+license = {text = "MIT"}
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "mss",
+    "pywin32; platform_system == 'Windows'",
+    "PySide6",
+    "pyqtgraph",
+    "pydantic>=1.10",
+    "PyYAML",
+    "torch",
+    "tensorboard",
+    "gymnasium",
+    "matplotlib",
+    "loguru",
+    "tqdm",
+    "einops",
+    "typing_extensions"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "pytest-cov"
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"

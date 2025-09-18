@@ -1,0 +1,53 @@
+mode: ppo
+env:
+  stub: true
+logging:
+  level: INFO
+reward_config: configs/reward.yaml
+obs:
+  width: 320
+  height: 180
+  frame_stack: 4
+  grayscale: false
+  scalar_features: 8
+actions:
+  - NOOP
+  - SELECT_COLONIST_0
+  - OPEN_ARCHITECT
+  - OPEN_ZONE
+  - CREATE_STOCKPILE
+  - SET_SPEED_1
+  - SET_SPEED_2
+  - SET_SPEED_3
+  - TOGGLE_PAUSE
+action:
+  param_dim: 4
+  param_bounds: [-1.0, 1.0]
+ppo:
+  steps_per_rollout: 256
+  update_epochs: 4
+  minibatch_size: 64
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_ratio: 0.2
+  vf_coef: 0.5
+  ent_coef: 0.01
+  lr: 0.0003
+  max_grad_norm: 0.5
+bc:
+  epochs: 5
+  batch_size: 64
+  lr: 0.0001
+  weight_decay: 1.0e-05
+dagger:
+  enabled: true
+  query_prob: 0.2
+  update_interval: 200
+train:
+  seed: 42
+  total_steps: 10000
+  eval_interval: 2000
+  save_interval: 5000
+dashboard:
+  tensorboard: true
+  hud_charts: false
