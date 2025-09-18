@@ -1,0 +1,10 @@
+log_level: INFO
+window_keyword: RimWorld
+loop_fps: 10
+capture:
+  width: 320
+  height: 180
+  frame_stack: 4
+  grayscale: false
+hud:
+  enable_gui: false

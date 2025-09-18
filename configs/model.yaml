@@ -1,0 +1,7 @@
+vision_backbone:
+  model: conv
+  feature_dim: 512
+policy_head:
+  param_init_std: 0.2
+value_head:
+  hidden_dim: 512
